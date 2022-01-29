@@ -14,7 +14,7 @@ public class BasePage
     if(driver==null)
     {
         System.setProperty("webdriver.chrome.driver",
-                "D:\\All about Software testing\\NEW START\\chromedriver 97 version\\chromedriver.exe");
+                "E:\\AutomationProject\\ChromeDriver\\chromedriver.exe");
         driver=new ChromeDriver();
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
