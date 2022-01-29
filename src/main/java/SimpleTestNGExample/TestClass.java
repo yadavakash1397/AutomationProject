@@ -1,7 +1,9 @@
+package SimpleTestNGExample;
+
+import SimpleTestNGExample.BasePage;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class TestClass
@@ -19,7 +21,7 @@ public class TestClass
     {
         String title=bs.driver.getTitle();
         System.out.println("Title is : "+title);
-        Assert.assertEquals(title.equalsIgnoreCase("google"),true);
+        Assert.assertEquals(title.equalsIgnoreCase(TestData.Title),true);
     }
 
     @Test (priority = 2)
@@ -27,7 +29,7 @@ public class TestClass
     {
         String url=bs.driver.getCurrentUrl();
         System.out.println("URL is : "+url);
-        Assert.assertEquals(url.equalsIgnoreCase("https://www.google.com/"),true);
+        Assert.assertEquals(url.equalsIgnoreCase(TestData.URL),true);
     }
 
     @AfterMethod
