@@ -8,34 +8,33 @@ import org.testng.annotations.Test;
 
 public class TestClass
 {
-    BasePage bs=new BasePage();
+    
 
     @BeforeMethod
     void setup()
     {
-        bs.initialization();
+        BasePage.initialization();
     }
 
     @Test (priority = 1)
     void Checktitle()
     {
-        String title=bs.driver.getTitle();
-        System.out.println("Title is : "+title);
-        Assert.assertEquals(title.equalsIgnoreCase(TestData.Title),true);
+        System.out.println("Title is : "+BasePage.getTitle());
+        Assert.assertEquals(BasePage.getTitle().equalsIgnoreCase(TestData.Title),true);
     }
 
     @Test (priority = 2)
     void Checkurl()
     {
-        String url=bs.driver.getCurrentUrl();
-        System.out.println("URL is : "+url);
-        Assert.assertEquals(url.equalsIgnoreCase(TestData.URL),true);
+        
+        System.out.println("URL is : "+BasePage.getURL());
+        Assert.assertEquals(BasePage.getURL().equalsIgnoreCase(TestData.URL),true);
     }
 
     @AfterMethod
     void teardown()
     {
-        bs.quit();
+    	BasePage.quit();
     }
 
 }

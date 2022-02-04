@@ -9,21 +9,18 @@ import org.testng.annotations.Test;
 
 public class TestClass2
 {
-    BasePage bs=new BasePage();
-
     @BeforeMethod
     void setup()
     {
-        bs.initialization();
+    	BasePage.initialization();
     }
 
     @Test(priority = 1)
     void CheckGoogleLogo()
     {
-        WebElement GoogleLogo = bs.driver.findElement(By.xpath("//img[@class='lnXdpd']"));
-        boolean image = GoogleLogo.isDisplayed();
-        Assert.assertTrue(image, "Image Displayed");
-        if (image == true)
+    	PageClass p=new PageClass();
+        Assert.assertEquals(p.checkLogo(), true);
+        if (p.checkLogo() == true)
         {
            System.out.println("Google Logo Displayed");
         }
@@ -33,7 +30,7 @@ public class TestClass2
     @AfterMethod
     void teardown()
     {
-        bs.quit();
+    	BasePage.quit();
     }
 
 }
